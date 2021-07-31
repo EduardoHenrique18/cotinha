@@ -1,12 +1,10 @@
 package com.cotinha.cotinha.models;
 
-
+import java.io.Serializable;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
 @Data
@@ -17,7 +15,6 @@ public class Cota implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     @Column
     private Long Id;
 
@@ -27,14 +24,13 @@ public class Cota implements Serializable {
     @Column
     private String users;
 
-    @Column
-    private String creator;
+
+    @OneToOne(mappedBy = "cotass")
+    private User creator;
 
     @Column
     private String cotaName;
 
     @Column
     private String date;
-
-
 }

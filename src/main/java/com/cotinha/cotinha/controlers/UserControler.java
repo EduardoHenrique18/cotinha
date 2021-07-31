@@ -1,6 +1,5 @@
 package com.cotinha.cotinha.controlers;
 
-
 import com.cotinha.cotinha.exceptions.ExistingEmail;
 import com.cotinha.cotinha.models.User;
 import com.cotinha.cotinha.services.UserService;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.net.URI;
 
-
 @RestController
 @RequestMapping(value = "/user")
 public class UserControler {
@@ -22,10 +20,9 @@ public class UserControler {
     UserService userService;
 
     @RequestMapping( value = "/register", method = RequestMethod.POST)
-    public ResponseEntity<Void> saveUser(@RequestBody User user) throws ExistingEmail {
+    public ResponseEntity<Void> save(@RequestBody User user) throws ExistingEmail {
         userService.emailSave(user);
         URI uri =  ServletUriComponentsBuilder.fromCurrentRequest().path("/register").buildAndExpand(user.getId()).toUri();
         return ResponseEntity.created(uri).build();
     }
-
 }

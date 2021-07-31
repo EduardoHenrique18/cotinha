@@ -1,10 +1,10 @@
 package com.cotinha.cotinha.models;
 
-
+import java.util.ArrayList;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -31,6 +31,5 @@ public class User implements Serializable {
 
     @Column
     private String birthDate;
-
 
 }
