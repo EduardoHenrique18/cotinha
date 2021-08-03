@@ -1,9 +1,11 @@
 package com.cotinha.cotinha.exceptions;
 
-public class CotaNotFound extends Exception {
-    private static final long serialVersionUDI = 1L;
+public class CotaNotFound extends RuntimeException {
+    private static final long serialVersionUID = 1L;
 
-    public CotaNotFound(String message){
+    public static  String message = "Id não encontrado:  ";
+
+    public CotaNotFound() {
         super(message);
     }
 }

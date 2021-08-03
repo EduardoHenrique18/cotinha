@@ -24,9 +24,8 @@ public class Cota implements Serializable {
     @Column
     private String users;
 
-
-    @OneToOne(mappedBy = "cotass")
-    private User creator;
+    @Column
+    private String creator;
 
     @Column
     private String cotaName;

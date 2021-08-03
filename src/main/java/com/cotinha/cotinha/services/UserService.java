@@ -11,11 +11,11 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
-    public User emailSave(User user) throws ExistingEmail {
+    public User save(User user) throws ExistingEmail {
         User userCondicion = userRepository.findByEmail(user.getEmail());
 
         if (userCondicion != null) {
-            throw new ExistingEmail("Email existente para: " + user.getEmail());
+            throw new ExistingEmail();
         }
         return userRepository.save(user);
     }

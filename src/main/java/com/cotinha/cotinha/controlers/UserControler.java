@@ -21,7 +21,7 @@ public class UserControler {
 
     @RequestMapping( value = "/register", method = RequestMethod.POST)
     public ResponseEntity<Void> save(@RequestBody User user) throws ExistingEmail {
-        userService.emailSave(user);
+        userService.save(user);
         URI uri =  ServletUriComponentsBuilder.fromCurrentRequest().path("/register").buildAndExpand(user.getId()).toUri();
         return ResponseEntity.created(uri).build();
     }

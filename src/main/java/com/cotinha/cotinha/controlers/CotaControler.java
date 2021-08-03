@@ -18,27 +18,27 @@ public class CotaControler {
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public ResponseEntity<Void> save(@RequestBody Cota cota){
-        cota = cotaService.cotaSave(cota);
+        cota = cotaService.save(cota);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(cota.getId()).toUri();
         return ResponseEntity.created(uri).build();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<?> find(@PathVariable Long id) throws CotaNotFound {
-        Cota cota = cotaService.cotaFind(id);
+        Cota cota = cotaService.find(id);
         return ResponseEntity.ok().body(cota);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PATCH)
     public ResponseEntity<Void> update(@RequestBody Cota cota, @PathVariable Long id) throws CotaNotFound {
         cota.setId(id);
-        cota = cotaService.cotaUpdate(cota);
+        cota = cotaService.update(cota);
         return ResponseEntity.noContent().build();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<?> delete(@PathVariable Long id) throws CotaNotFound {
-        cotaService.cotaDelete(id);
+        cotaService.delete(id);
         return  ResponseEntity.noContent().build();
     }
 }
