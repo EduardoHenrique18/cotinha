@@ -9,5 +9,4 @@ public class CotinhaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CotinhaApplication.class, args);
 	}
-
 }
