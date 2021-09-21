@@ -1,0 +1,9 @@
+services:
+  teste-postgres-compose:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: "test"
+    ports:
+      - "15432:5432"
+    volumes:
+      - /home/eduardo/Desenvolvimento/Docker-Compose/PostgreSQL:/var/lib/postgresql/data
